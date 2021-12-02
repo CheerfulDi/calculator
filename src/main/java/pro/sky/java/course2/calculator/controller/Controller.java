@@ -16,26 +16,30 @@ public class Controller {
 
     @GetMapping
     public String welcomeCalculator() {
-        return service.welcomeCalculator();
+        return "Welcome to the calculator";
     }
 
     @GetMapping(path="/calculator/plus")
     public String addition(@RequestParam int num1, @RequestParam int num2){
-        return service.addition(num1, num2);
+        return num1 + " + " + num2 + " = " + service.plus(num1, num2);
     }
 
     @GetMapping(path="/calculator/minus")
     public String substraction(@RequestParam int num1, @RequestParam int num2){
-        return service.substraction(num1, num2);
+        return num1 + " - " + num2 + " = " + service.minus(num1, num2);
     }
 
     @GetMapping(path="/calculator/multiply")
     public String multiplication(@RequestParam int num1, @RequestParam int num2){
-        return service.multiplication(num1, num2);
+        return num1 + " * " + num2 + " = " + service.multy(num1, num2);
     }
 
     @GetMapping(path="/calculator/divide")
     public String division(@RequestParam int num1, @RequestParam int num2){
-        return service.division(num1, num2);
+        if (num2 != 0) {
+            return num1 + " / " + num2 + " = " + service.divide(num1, num2);
+        } else {
+            return "На ноль делить нельзя!";
+        }
     }
 }
