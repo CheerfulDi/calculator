@@ -11,40 +11,47 @@ import static pro.sky.java.course2.calculator.CalculatorTestConstants.*;
 
 public class CalculatorServiceParamsTest {
 
-    public static Stream<Arguments> provideParamsForTests() {
-        return Stream.of(
-                Arguments.of(NUM_1,NUM_2,PLUS_RESULT),
-                Arguments.of(NUM_1, NUM_2, MINUS_RESULT),
-                Arguments.of(NUM_1,NUM_2,MULTY_RESULT),
-                Arguments.of(NUM_1,NUM_2, DIVIDE_RESULT)
-                );
+    public static Stream<Arguments> provideParamsForTestPlus() {
+        return Stream.of(Arguments.of(NUM_1,NUM_2,PLUS_RESULT));
+    }
+
+    public static Stream<Arguments> provideParamsForTestMinus() {
+        return Stream.of(Arguments.of(NUM_1, NUM_2, MINUS_RESULT));
+    }
+
+    public static Stream<Arguments> provideParamsForTestMulty() {
+        return Stream.of(Arguments.of(NUM_1,NUM_2,MULTY_RESULT));
+    }
+
+    public static Stream<Arguments> provideParamsForTestDivide() {
+        return Stream.of(Arguments.of(NUM_1,NUM_2, DIVIDE_RESULT));
     }
 
     @ParameterizedTest
-    @MethodSource("provideParamsForTests")
-    public void shouldReturnCorrectResultAfterPlus(int num1, int num2) {
+    @MethodSource("provideParamsForTestPlus")
+    public void shouldReturnCorrectResultAfterPlus(int num1, int num2, int plusResult) {
         int result = num1 + num2;
-        Assertions.assertEquals(PLUS_RESULT, result);
+        Assertions.assertEquals(plusResult, result);
     }
 
     @ParameterizedTest
-    @MethodSource("provideParamsForTests")
-    public void shouldReturnCorrectResultAfterMinus(int num1, int num2) {
+    @MethodSource("provideParamsForTestMinus")
+    public void shouldReturnCorrectResultAfterMinus(int num1, int num2, int minusResult) {
         int result = num1 - num2;
-        Assertions.assertEquals(MINUS_RESULT, result);
+        Assertions.assertEquals(minusResult, result);
     }
 
     @ParameterizedTest
-    @MethodSource("provideParamsForTests")
-    public void shouldReturnCorrectResultAfterMulty(int num1, int num2) {
+    @MethodSource("provideParamsForTestMulty")
+    public void shouldReturnCorrectResultAfterMulty(int num1, int num2, int multyResult) {
         int result = num1 * num2;
-        Assertions.assertEquals(MULTY_RESULT, result);
+        Assertions.assertEquals(multyResult, result);
     }
 
     @ParameterizedTest
-    @MethodSource("provideParamsForTests")
-    public void shouldReturnCorrectResultAfterDivide(int num1, int num2) {
+    @MethodSource("provideParamsForTestDivide")
+    public void shouldReturnCorrectResultAfterDivide(int num1, int num2, int divideResult) {
         int result = num1 / num2;
-        Assertions.assertEquals(DIVIDE_RESULT, result);
+        Assertions.assertEquals(divideResult, result);
     }
 }

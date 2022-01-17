@@ -10,10 +10,7 @@ public class CalculatorServiceTest {
     @Test
     public void shouldReturnCorrectResultAfterPlus() {
 
-       int num1 = 3;
-       int num2 = 6;
-
-       int result = num1 + num2;
+       int result = 3 + 6;
        Assertions.assertEquals(9,result);
 
     }
@@ -21,10 +18,7 @@ public class CalculatorServiceTest {
     @Test
     public void shouldReturnCorrectResultAfterMinus() {
 
-        int num1 = 3;
-        int num2 = 2;
-
-        int result = num1 - num2;
+        int result = 3 - 2;
         Assertions.assertEquals(1,result);
 
     }
@@ -32,10 +26,7 @@ public class CalculatorServiceTest {
     @Test
     public void shouldReturnCorrectResultAfterMulty() {
 
-        int num1 = 3;
-        int num2 = 2;
-
-        int result = num1 * num2;
+        int result = 3 * 2;
         Assertions.assertEquals(6,result);
 
     }
@@ -43,10 +34,7 @@ public class CalculatorServiceTest {
     @Test
     public void shouldReturnCorrectResultAfterDivide() {
 
-        int num1 = 9;
-        int num2 = 3;
-
-        int result = num1 / num2;
+        int result = 9 / 3;
         Assertions.assertEquals(3,result);
 
     }
